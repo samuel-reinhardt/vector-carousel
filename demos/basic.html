@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<script type="importmap">
+			{
+				"lit": "https://unpkg.com/lit-html@latest/lit.js?module",
+				"lit-element": "https://unpkg.com/lit-html@latest/lit-element.js?module",
+				"lit-html": "https://unpkg.com/lit-html@latest/lit-html.js?module",
+				"VectorCarousel": "../source/index.js",
+				"VectorCarousel/": "../source/"
+			}
+		</script>
+		<script type="module">
+			import * from VectorCarousel
+		</script>
+	</head>
+	<body>
+		<vector-carousel>
+			<h2 slot="interface-top">Hello Carousel</h2>
+			<vector-carousel-slide slot="slides">
+				<h3>This is a slide</h3>
+				<p>Lorem ipsum dolor sit amet</p>
+			</vector-carousel-slide>
+		</vector-carousel>
+		<vector-carousel>
+			<h2 slot="interface-top">Hello Carousel</h2>
+			<vector-carousel-slide slot="slides">
+				<h3>This is a slide</h3>
+				<p>Lorem ipsum dolor sit amet</p>
+			</vector-carousel-slide>
+	</body>
+</html>
