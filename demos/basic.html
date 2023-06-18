@@ -2,30 +2,35 @@
 	<head>
 		<script type="importmap">
 			{
-				"lit": "https://unpkg.com/lit-html@latest/lit.js?module",
-				"lit-element": "https://unpkg.com/lit-html@latest/lit-element.js?module",
-				"lit-html": "https://unpkg.com/lit-html@latest/lit-html.js?module",
-				"VectorCarousel": "../source/index.js",
-				"VectorCarousel/": "../source/"
+				"imports": {
+					"lit": "https://www.unpkg.com/browse/lit@2.7.5/index.js?module",
+					"lit-element": "https://unpkg.com/lit-element@3.3.2/lit-element.js?module",
+					"lit-html": "https://unpkg.com/lit-html@2.7.4/lit-html.js?module",
+					"VectorCarousel": "../source/index.js",
+					"VectorCarousel/": "../source/"
+				}
 			}
 		</script>
 		<script type="module">
-			import * from VectorCarousel
+			import { VectorCarousel } from "VectorCarousel"
 		</script>
 	</head>
 	<body>
-		<vector-carousel>
-			<h2 slot="interface-top">Hello Carousel</h2>
+		<vector-carousel visible-heading orientation="horizontal" >
+			<h2 slot="heading">Hello Carousel</h2>
 			<vector-carousel-slide slot="slides">
 				<h3>This is a slide</h3>
 				<p>Lorem ipsum dolor sit amet</p>
 			</vector-carousel-slide>
+			<vector-carousel-slide slot="slides">
+				<h3>This is a slide</h3>
+				<p>Lorem ipsum dolor sit amet</p>
+			</vector-carousel-slide>
+			<vector-carousel-control slot="interface-left" target="previous">Previous</vector-carousel-control>
+			<vector-carousel-control slot="interface-right" target="next">Next</vector-carousel-control>
+			<vector-carousel-nav>
+				<!-- button template -->
+			</vector-carousel-nav>
 		</vector-carousel>
-		<vector-carousel>
-			<h2 slot="interface-top">Hello Carousel</h2>
-			<vector-carousel-slide slot="slides">
-				<h3>This is a slide</h3>
-				<p>Lorem ipsum dolor sit amet</p>
-			</vector-carousel-slide>
 	</body>
 </html>
