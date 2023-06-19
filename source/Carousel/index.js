@@ -2,7 +2,7 @@ import { LitElement, html, css } from 'lit-element'
 
 export class Carousel extends LitElement {
 	static properties = {
-		"show-heading": { type: Boolean, attribute: true }, // visibly show the carousel heading
+		"visible-heading": { type: Boolean, attribute: true }, // visibly show the carousel heading
 		"vertical": { type: Boolean, attribute: true } // 
 	}
 
@@ -12,8 +12,8 @@ export class Carousel extends LitElement {
 
 	render() {
 		return html`
-			<section aria-labelledby="carousel-heading">
-				<slot id="carousel-heading" name="heading" ?hidden=${!this['show-heading']} ></slot>
+			<section class="carousel" aria-labelledby="carousel-heading">
+				<slot id="carousel-heading" name="heading" ?hidden=${!this['visible-heading']} ></slot>
 				<slot name="interface-top"></slot>
 				<slot name="slides"></slot>
 				<slot name="interface-left"></slot>
@@ -25,7 +25,7 @@ export class Carousel extends LitElement {
 
 	static styles = [
 		css`
-			:host {
+			.carousel {
 				display: grid;
 				grid-template-areas:
 					"Heading Heading Heading"
