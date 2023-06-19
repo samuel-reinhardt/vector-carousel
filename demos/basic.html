@@ -14,17 +14,40 @@
 		<script type="module">
 			import { VectorCarousel } from "VectorCarousel"
 		</script>
+		<style>
+			vector-carousel {
+				opacity: 1;
+				transition: .2s opacity ease-out;
+			}
+			vector-carousel:not(:defined) {
+				opacity: 0;
+			}
+			vector-carousel-slide > * {
+				background: red;
+				border: solid 3px blue;
+			}
+		</style>
 	</head>
 	<body>
 		<vector-carousel>
 			<h2 slot="heading">Hello Carousel 1</h2>
 			<vector-carousel-slide slot="slides">
-				<h3>This is a slide</h3>
-				<p>Lorem ipsum dolor sit amet</p>
+				<div>
+					<h3>This is a slide</h3>
+					<p>Lorem ipsum dolor sit amet</p>
+				</div>
 			</vector-carousel-slide>
 			<vector-carousel-slide slot="slides">
-				<h3>This is a slide</h3>
-				<p>Lorem ipsum dolor sit amet</p>
+				<div>
+					<h3>This is a slide</h3>
+					<p>Lorem ipsum dolor sit amet</p>
+				</div>
+			</vector-carousel-slide>
+			<vector-carousel-slide slot="slides">
+				<div>
+					<h3>This is a slide</h3>
+					<p>Lorem ipsum dolor sit amet</p>
+				</div>
 			</vector-carousel-slide>
 			<vector-carousel-control slot="interface-left" target="previous">Previous</vector-carousel-control>
 			<vector-carousel-control slot="interface-right" target="next">Next</vector-carousel-control>
@@ -32,15 +55,31 @@
 				<!-- button template -->
 			</vector-carousel-nav>
 		</vector-carousel>
-		<vector-carousel visible-heading vertical >
+		<vector-carousel show_heading vertical slide_visible_amount="2" slide_gap="10px">
 			<h2 slot="heading">Hello Carousel 2</h2>
 			<vector-carousel-slide slot="slides">
-				<h3>This is a slide</h3>
-				<p>Lorem ipsum dolor sit amet</p>
+				<div>
+					<h3>This is a slide</h3>
+					<p>Lorem ipsum dolor sit amet</p>
+				</div>
 			</vector-carousel-slide>
 			<vector-carousel-slide slot="slides">
-				<h3>This is a slide</h3>
-				<p>Lorem ipsum dolor sit amet</p>
+				<div>
+					<h3>This is a slide</h3>
+					<p>Lorem ipsum dolor sit amet</p>
+				</div>
+			</vector-carousel-slide>
+			<vector-carousel-slide slot="slides">
+				<div>
+					<h3>This is a slide</h3>
+					<p>Lorem ipsum dolor sit amet</p>
+				</div>
+			</vector-carousel-slide>
+			<vector-carousel-slide slot="slides">
+				<div>
+					<h3>This is a slide</h3>
+					<p>Lorem ipsum dolor sit amet</p>
+				</div>
 			</vector-carousel-slide>
 			<vector-carousel-control slot="interface-left" target="previous">Previous</vector-carousel-control>
 			<vector-carousel-control slot="interface-right" target="next">Next</vector-carousel-control>
