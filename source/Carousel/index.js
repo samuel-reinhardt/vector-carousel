@@ -3,13 +3,14 @@ import { LitElement, html, css, unsafeCSS } from 'lit-element'
 export class Carousel extends LitElement {
 	static properties = {
 		show_heading: { type: Boolean, attribute: true }, // visibly show the carousel heading
-		vertical: { type: Boolean, attribute: true },
+		transition: { type: String, attribute: true },
 		starting_slide: { type: Number, attribute: true },
 		show_overflow: { type: Boolean, attribute: true },
 		slide_visible_amount: { type: Number, attribute: true },
 		slide_gap: { type: css, attribute: true },
 		slide_scroll_amount: { type: Number, attribute: true },
-		_active_slide: { type: Number, state: true }
+		_active_slide_index: { type: Number, state: true },
+		_slides: { type: Array, state: true } 
 	}
 
 	constructor() {
@@ -18,17 +19,26 @@ export class Carousel extends LitElement {
 		this.starting_slide = 0
 		this.slide_visible_amount = 1
 		this.slide_gap = "0px"
+		this.transition = "slide"
 	}
 
 	addDynamicStyles() {
 		
 	}
 
+
 	renderHeading() {
 		const hidden = this.show_heading ? '' : 'hidden'
 		return html`
 			<slot id="carousel-heading" name="heading" .hidden=${hidden} ></slot>
 		`
+	}
+
+	renderSlides() {
+		this._slides = this.shadowRoot.querySelector("slot[name='slides']")?.assignedElements()
+		this._slides.forEach( ( index, slide ) => {
+			slide.setAttribute( 'position', index - this._active_slide )
+		} )
 	}
 
 	render() { 
@@ -104,6 +114,11 @@ export class Carousel extends LitElement {
 			}
 			slot[name="interface-left"] {
 				grid-area: Left;
+			}
+		`,
+		css`
+			slot[name="slides"]::slotted(vector-carousel-slide.--slide-transition) {
+				transform: transformX( var( --position ) * 100% )
 			}
 		`
 	]
